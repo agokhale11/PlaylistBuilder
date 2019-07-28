@@ -1,0 +1,94 @@
+﻿using Newtonsoft.Json;
+using PlaylistBuilder.Models;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PlaylistBuilder
+{
+    public class Helpers
+    {
+        private static string baseUrl = "https://api.spotify.com";
+
+        public static string ReadResponseToString(HttpWebRequest request)
+        {
+            HttpWebResponse resp = (HttpWebResponse)request.GetResponse();
+            String json = "";
+            using (Stream respStr = resp.GetResponseStream())
+            {
+                using (StreamReader rdr = new StreamReader(respStr, Encoding.UTF8))
+                {
+                    //should get back a string i can then turn to json and parse for accesstoken
+                    json = rdr.ReadToEnd();
+                    rdr.Close();
+                }
+            }
+            return json;
+        }
+
+        public static string AddTracksToPlaylist(string id, string access_token, PagingObject<TrackObject> songData)
+        {
+            string addTracksEndpoint = "" + baseUrl + "/v1/playlists/" + id + "/tracks";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(addTracksEndpoint);
+
+            request.Method = "POST";
+            request.ContentType = "application/json";
+            request.Accept = "application/json";
+            request.Headers.Add("Authorization: Bearer " + access_token);
+
+            string songs = "";
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string body = ("{\"uris\":[");
+                foreach (TrackObject track in songData.Items)
+                {
+                    body = body + "\"" + track.Uri + "\",";
+                    songs = songs + track.Name + " " + track.Artists + "\n";
+                }
+                body = body.TrimEnd(',') + "]}";
+
+                streamWriter.Write(body);
+            }
+            return songs;
+        }
+
+        public static PlaylistObject CreatePlaylist(string name, string access_token, string user)
+        {
+            string playlistEndpoint = "" + baseUrl + "/v1/users/" + user + "/playlists";
+            HttpWebRequest newRequest = (HttpWebRequest)WebRequest.Create(playlistEndpoint);
+
+            newRequest.Method = "POST";
+            newRequest.ContentType = "application/json";
+            newRequest.Headers.Add("Authorization: Bearer " + access_token);
+
+
+            using (var streamWriter = new StreamWriter(newRequest.GetRequestStream()))
+            {
+                string body = ("{\"name\":\""+ name +"\"}");
+
+                streamWriter.Write(body);
+            }
+
+            string newJson = Helpers.ReadResponseToString(newRequest);
+
+            PlaylistObject playlist = JsonConvert.DeserializeObject<PlaylistObject>(newJson);
+            return playlist;
+        }
+
+        public static string CreateGetRequest(string URL, string access_token, string user)
+        { 
+            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(URL);
+
+            webRequest.Method = "GET";
+            webRequest.Headers.Add("Authorization", "Bearer " + access_token);
+            webRequest.ContentType = "application/json";
+            webRequest.Accept = "application/json";
+            string json =  Helpers.ReadResponseToString(webRequest);
+            return json;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "Home";
+}
+<center>
+    <h2>Welcome to the Spotify Playlist Builder!</h2>
+
+
+    <b>Plz let us use your spotify data</b>
+
+    <input type="button" value="Yes" onclick="location.href='@Url.Action("GetLogin", "Home")'" />
+    <input type="button" value="No" onclick="location.href='@Url.Action("InvalidLogin", "Home")'" />
+</center>
