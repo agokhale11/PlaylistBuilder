@@ -2,9 +2,14 @@
 @{
     ViewData["Title"] = "PlaylistBuilder";
 }
+    
+    <link rel="stylesheet" href="@(Url.Content("~/css/site.css"))" />
     <center>
-        <h2>PlaylistBuilder</h2>
+        <p style="font-family:'Arial'; font-size:72px; font-weight:bold">
+            Playlist Builder
+        </p>
 
-        <input type="button" value="Create Playlist with your top songs" onclick="location.href='@Url.Action("TopSongCreator", "Playlist")'" />
-        <input type="button" value="Create Playlist with recently played songs" onclick="location.href='@Url.Action("RecentlyPlayed", "Playlist")'" />
+        <input type="button" value="Create Playlist with your top songs" class="btn" onclick="location.href='@Url.Action("TopSongCreator", "Playlist")'" />
+        <input type="button" value="Create Playlist with recently played songs" class="btn" onclick="location.href='@Url.Action("RecentlyPlayed", "Playlist")'" />
+
     </center>

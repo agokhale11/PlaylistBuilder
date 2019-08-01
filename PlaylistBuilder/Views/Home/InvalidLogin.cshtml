@@ -2,8 +2,16 @@
 @{
     ViewData["Title"] = "InvalidLogin";
 }
-<center>
-    <h2>We really need your login!</h2>
+    <center>
+        <p style="font-family:'Arial'; font-size:40px; font-weight:bold">
+            We really need your login!
+        </p>
 
-    <input type="button" value="Okay sounds good!" onclick="location.href='@Url.Action("GetLogin", "Home")'" />
-</center>
+        <p style="font-family:Calibri; font-size:24px;">
+            To start building personalized playlists, we need 
+            <br />access to your account to make them unique to you!
+        </p>
+
+
+        <input type="button" value="Okay sounds good!" class="btn" onclick="location.href='@Url.Action("GetLogin", "Home")'" />
+    </center>

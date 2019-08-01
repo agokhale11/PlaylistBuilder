@@ -2,12 +2,23 @@
 @{
     ViewData["Title"] = "Home";
 }
-<center>
-    <h2>Welcome to the Spotify Playlist Builder!</h2>
+    <center>
+        <p style="font-family:'Arial'; font-size:40px; font-weight:bold">
+            Welcome to the
+        </p>
 
+        <p style="font-family:'Arial'; font-size:56px; font-weight:bold">
+            Spotify Playlist Builder!
+        </p>
 
-    <b>Plz let us use your spotify data</b>
+        <p style="font-family:Calibri; font-size:24px;">
+            <br />
 
-    <input type="button" value="Yes" onclick="location.href='@Url.Action("GetLogin", "Home")'" />
-    <input type="button" value="No" onclick="location.href='@Url.Action("InvalidLogin", "Home")'" />
-</center>
+            To proceed with creating personalized playlists,
+            <br />please login to your Spotify Account
+            <br />
+        </p>
+
+        <input type="button" value="Okay!" class="btn" onclick="location.href='@Url.Action("GetLogin", "Home")'" />
+        <input type="button" value="No thanks" class="btn" onclick="location.href='@Url.Action("InvalidLogin", "Home")'" />
+    </center>
