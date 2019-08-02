@@ -26,7 +26,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" style="font-family:Verdana;" onclick="location.href='@Url.Action("Home", "Home")'" class="navbar-brand">Home</a>
+                @Html.ActionLink("PlaylistBuilder", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
         </div>
     </nav>
