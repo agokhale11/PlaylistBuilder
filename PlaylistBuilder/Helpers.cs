@@ -30,7 +30,7 @@ namespace PlaylistBuilder
             return json;
         }
 
-        public static string AddTracksToPlaylist(string id, string access_token, List<TrackObject> songData)
+        public static List<string> AddTracksToPlaylist(string id, string access_token, List<TrackObject> songData)
         {
             string addTracksEndpoint = "" + baseUrl + "/v1/playlists/" + id + "/tracks";
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(addTracksEndpoint);
@@ -40,14 +40,26 @@ namespace PlaylistBuilder
             request.Accept = "application/json";
             request.Headers.Add("Authorization: Bearer " + access_token);
 
-            string songs = "";
+            List<string> songs = new List<string>();
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
                 string body = ("{\"uris\":[");
                 foreach (TrackObject track in songData)
                 {
                     body = body + "\"" + track.Uri + "\",";
-                    songs = songs + track.Name + " " + track.Artists + "\n";
+
+                    
+                    string artistNames = "";
+                    List<ArtistObject> artists = track.Artists;
+                    for(int i = 0; i < artists.Count; ++i)
+                    {
+
+                        artistNames = artistNames + ", " + artists[i].Name;
+                    }
+
+                    string song = track.Name + "-- " + artistNames;
+                    song = song.TrimEnd(',');
+                    songs.Add(song);
                 }
                 body = body.TrimEnd(',') + "]}";
 

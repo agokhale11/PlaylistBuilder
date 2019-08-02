@@ -5,13 +5,22 @@
     <center>
 
         <p style="font-family:'Arial'; font-size:18px; font-weight:bold">
-           <br />
+            <br />
         </p>
 
         <p style="font-family:'Arial'; font-size:36px; font-weight:bold">
             Finished! Your Playlist has been created in your spotify account.
             <br />Here are the list of songs in it:
         </p>
+
+        
+            <ol>
+                @foreach (var item in ViewBag.songs)
+                {
+                    <li style="font-family:'Arial'; font-size:14px; font-weight:bold"> @item </li>
+                }
+            </ol>
+        
 
         <input type="button" value="Build Another List" class="btn" onclick="location.href='@Url.Action("PlaylistBuilder", "Playlist")'" />
     </center>

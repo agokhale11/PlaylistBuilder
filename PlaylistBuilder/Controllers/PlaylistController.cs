@@ -47,7 +47,7 @@ namespace PlaylistBuilder.Controllers
             List<TrackObject> data = songData.Items;
 
             PlaylistObject playlist = Helpers.CreatePlaylist("Top Tracks", access_token, user);
-            Helpers.AddTracksToPlaylist(playlist.Id, access_token, data);
+            ViewBag.songs = Helpers.AddTracksToPlaylist(playlist.Id, access_token, data);
             return View("Done");
         }
 
@@ -68,7 +68,7 @@ namespace PlaylistBuilder.Controllers
             }
 
             PlaylistObject playlist = Helpers.CreatePlaylist("Recently Played", access_token, user);
-            Helpers.AddTracksToPlaylist(playlist.Id, access_token, songs);
+            ViewBag.songs = Helpers.AddTracksToPlaylist(playlist.Id, access_token, songs);
 
             return View("Done");
         }
