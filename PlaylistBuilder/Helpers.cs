@@ -110,5 +110,21 @@ namespace PlaylistBuilder
             string json =  Helpers.ReadResponseToString(webRequest);
             return json;
         }
+
+        public static bool PreferenceValidation(UserPreference preference)
+        {
+            int tempo;
+            float danceable;
+
+            if(!int.TryParse(preference.Tempo, out tempo))
+            {
+                return false;
+            }
+            else if(!float.TryParse(preference.Danceable, out danceable) || danceable > 1.0 || danceable < 0.0)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
