@@ -53,8 +53,14 @@ namespace PlaylistBuilder
                     List<ArtistObject> artists = track.Artists;
                     for(int i = 0; i < artists.Count; ++i)
                     {
-
-                        artistNames = artistNames + ", " + artists[i].Name;
+                        if (i > 0)
+                        {
+                            artistNames = artistNames + ", " + artists[i].Name;
+                        }
+                        else
+                        {
+                            artistNames = artists[i].Name;
+                        }
                     }
 
                     string song = track.Name + "-- " + artistNames;

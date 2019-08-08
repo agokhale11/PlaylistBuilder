@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "CustomPlaylist";
+}
+
+    <center>
+        <p style="font-family:'Arial'; font-size:72px; font-weight:bold">
+            Create Custom List!
+        </p>
+        <br />
+
+        @model PlaylistBuilder.Models.UserPreference
+
+        @using (Html.BeginForm("FavoriteArtist", "Playlist", FormMethod.Post))
+        {
+            <br />
+            <br />
+            <h4>What artist represents this playlist?</h4>
+            @Html.TextBoxFor(model => model.ArtistName)
+            @Html.ValidationMessageFor(model => model.ArtistName)
+
+            <br />
+            <br />
+            <h4>What tempo should this playlist generally be at?</h4>
+            @Html.TextBoxFor(model => model.Tempo)
+            @Html.ValidationMessageFor(model => model.Tempo)
+
+            <br />
+            <br />
+            <h4>How danceable should this playlist be?</h4>
+            @Html.TextBoxFor(model => model.Danceable)
+            @Html.ValidationMessageFor(model => model.Danceable)
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <button type="submit" class="btn">Create playlist!</button>
+        }
+
+
+
+
+    </center>
+

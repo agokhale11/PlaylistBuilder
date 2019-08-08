@@ -51,6 +51,40 @@ namespace PlaylistBuilder.Controllers
             return View("Done");
         }
 
+        public IActionResult CustomPlaylist()
+        {
+            return View();
+        }
+
+        public IActionResult FavoriteArtist(UserPreference seed)
+        {
+            string access_token = Request.Cookies["access_token"];
+            string user = Request.Cookies["user"];
+            string findIdUrl = "" + baseUrl + "/v1/search";
+            string artistName = "";
+            string type = "&type=artist";
+
+            if (ModelState.IsValid)
+            {
+                artistName = seed.ArtistName.Replace(" ", "%20");
+            }
+            findIdUrl = findIdUrl + "?q=" + artistName + type;
+            string json = Helpers.CreateGetRequest(findIdUrl, access_token, user);
+            SearchQuery query = JsonConvert.DeserializeObject<SearchQuery>(json);
+            List<ArtistObject> artists = query.artists.Items;
+
+            string URL = "" + baseUrl + "/v1/recommendations";
+            string seeds = "?seed_artists=" + artists[0].Id + "&limit=50";  
+            string jsonRecommended = Helpers.CreateGetRequest(URL+ seeds, access_token, user);
+
+            RecommendationObject recommendation = JsonConvert.DeserializeObject<RecommendationObject>(jsonRecommended);
+            List<TrackObject> tracks = recommendation.Tracks.Cast<TrackObject>().ToList();
+
+            PlaylistObject playlist = Helpers.CreatePlaylist("Recommended", access_token, user);
+            ViewBag.songs = Helpers.AddTracksToPlaylist(playlist.Id, access_token, tracks);
+            return View("Done");
+        }
+
         public IActionResult RecentlyPlayed()
         {
             string access_token = Request.Cookies["access_token"];

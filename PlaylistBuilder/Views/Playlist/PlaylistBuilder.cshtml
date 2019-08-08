@@ -9,7 +9,14 @@
             Playlist Builder
         </p>
 
-        <input type="button" value="Create Playlist with your top songs" class="btn" onclick="location.href='@Url.Action("TopSongCreator", "Playlist")'" />
-        <input type="button" value="Create Playlist with recently played songs" class="btn" onclick="location.href='@Url.Action("RecentlyPlayed", "Playlist")'" />
+        <p>
+            <input type="button" value="Create Playlist with your top songs" class="btn" onclick="location.href='@Url.Action("TopSongCreator", "Playlist")'" />
+            <input type="button" value="Create Playlist with recently played songs" class="btn" onclick="location.href='@Url.Action("RecentlyPlayed", "Playlist")'" />
+        </p>
+
+        <br />
+
+        <input type="button" value="Create Custom Playlist with your own Attributes!" class="btn" onclick="location.href='@Url.Action("CustomPlaylist", "Playlist")'" />
+
 
     </center>

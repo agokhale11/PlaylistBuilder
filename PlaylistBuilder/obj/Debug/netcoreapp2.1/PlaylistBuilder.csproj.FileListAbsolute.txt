@@ -32,3 +32,4 @@ C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuild
 C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
 C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
 C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Debug\netcoreapp2.1\Razor\Views\Playlist\CustomPlaylist.g.cshtml.cs
