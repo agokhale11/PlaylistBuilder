@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace PlaylistBuilder.Models
 {
+    // consists of all the fields that identify and describe a 
+    // Playlist Object as described by Spotify API
     public class PlaylistObject
     {
         [JsonProperty("collaborative")]
@@ -20,23 +22,14 @@ namespace PlaylistBuilder.Models
         [JsonProperty("id")]
         public string Id { get; set; }
 
-        //[JsonProperty("images")]
-       // public List<Image> Images { get; set; }
-
         [JsonProperty("name")]
         public string Name { get; set; }
-
-      //  [JsonProperty("owner")]
-        //public PublicProfile Owner { get; set; }
 
         [JsonProperty("public")]
         public bool Public { get; set; }
 
         [JsonProperty("snapshot_id")]
         public string SnapshotId { get; set; }
-
-        //[JsonProperty("tracks")]
-        //public PlaylistTrackCollection Tracks { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }

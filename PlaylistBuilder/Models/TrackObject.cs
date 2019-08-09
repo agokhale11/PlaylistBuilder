@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace PlaylistBuilder.Models
 {
+    // consists of all the fields that identify and describe a 
+    // Track Object as described by Spotify API
     public class TrackObject
     {
         [JsonProperty("artists")]

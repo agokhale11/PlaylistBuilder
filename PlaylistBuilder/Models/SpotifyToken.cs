@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace PlaylistBuilder.Models
 {
+    //consists of authorization access tokens for authentication
     public class SpotifyToken
     {
         public string access_token { get; set; }
@@ -18,6 +19,7 @@ namespace PlaylistBuilder.Models
         public string refresh_token { get; set; }
     }
 
+    //defines which user is currently using the access token
     public class User
     {
         public string id { get; set; }

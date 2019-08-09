@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PlaylistBuilder.Models
 {
+    // consists of the tracks retrieved from a spotify recommendation
     public class RecommendationObject
     {
         [JsonProperty("tracks")]

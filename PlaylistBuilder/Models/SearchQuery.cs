@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PlaylistBuilder.Models
 {
+    // consists of the artists and tracks that a user can use to build a playlist from
     public class SearchQuery
     {
         [JsonProperty("artists")]

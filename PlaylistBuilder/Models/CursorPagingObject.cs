@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace PlaylistBuilder.Models
 {
+    // consists of all the fields that identify and describe a 
+    // Cursor Paging Object as described by Spotify API
     public class CursorPagingObject<T>
     {
         [JsonProperty("href")]
