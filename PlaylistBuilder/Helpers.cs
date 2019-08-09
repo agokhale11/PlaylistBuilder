@@ -38,46 +38,31 @@ namespace PlaylistBuilder
         public static List<string> AddTracksToPlaylist(string id, string access_token, List<TrackObject> songData)
         {
             string addTracksEndpoint = "" + baseUrl + "/v1/playlists/" + id + "/tracks";
-
-            //create POST web request and add headers
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(addTracksEndpoint);
-            request.Method = "POST";
-            request.ContentType = "application/json";
-            request.Accept = "application/json";
-            request.Headers.Add("Authorization: Bearer " + access_token);
-
             List<string> songs = new List<string>(); // list of strings to be created in json format to form the post body
-            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            
+            string body = ("{\"uris\":["); //create json formatted post body
+            foreach (TrackObject track in songData)
             {
-                //create json formatted post body
-                string body = ("{\"uris\":[");
-                foreach (TrackObject track in songData)
+                body = body + "\"" + track.Uri + "\",";
+                string artistNames = "";
+                List<ArtistObject> artists = track.Artists;
+
+                for(int i = 0; i < artists.Count; ++i)
                 {
-                    body = body + "\"" + track.Uri + "\",";
-                    string artistNames = "";
-                    List<ArtistObject> artists = track.Artists;
-
-                    for(int i = 0; i < artists.Count; ++i)
+                    if (i > 0)
                     {
-                        if (i > 0)
-                        {
-                            artistNames = artistNames + ", " + artists[i].Name;
-                        }
-                        else
-                        {
-                            artistNames = artists[i].Name;
-                        }
+                        artistNames = artistNames + ", " + artists[i].Name;
                     }
-
-                    string song = track.Name + "-- " + artistNames; // string used to display all tracks added on view page
-                    song = song.TrimEnd(',');
-                    songs.Add(song);
+                    else
+                    {
+                        artistNames = artists[i].Name;
+                    }
                 }
-                body = body.TrimEnd(',') + "]}";                    // json string to send in request
-
-                streamWriter.Write(body);
+                string song = track.Name + "-- " + artistNames; // string used to display all tracks added on view page
+                songs.Add(song.TrimEnd(','));
             }
-            string json = Helpers.ReadResponseToString(request);   // must get back returned output or request is considered invalid 
+            body = body.TrimEnd(',') + "]}";                    // json string to send in request
+            string json = CreatePostRequest(addTracksEndpoint, access_token, body);
             return songs;
         }
 
@@ -88,20 +73,10 @@ namespace PlaylistBuilder
         public static PlaylistObject CreatePlaylist(string name, string access_token, string user)
         {
             string playlistEndpoint = "" + baseUrl + "/v1/users/" + user + "/playlists";
+            string body = ("{\"name\":\"" + name + "\"}");
 
-            // create post request
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(playlistEndpoint);
-            request.Method = "POST";
-            request.ContentType = "application/json";
-            request.Headers.Add("Authorization: Bearer " + access_token);
+            string json = CreatePostRequest(playlistEndpoint, access_token, body);
 
-            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-            {
-                string body = ("{\"name\":\""+ name +"\"}");
-
-                streamWriter.Write(body);
-            }
-            string json = Helpers.ReadResponseToString(request); //turn returned data to json formatted string
             PlaylistObject playlist = JsonConvert.DeserializeObject<PlaylistObject>(json); //turn json string to defined playlist object
             return playlist;
         }
@@ -120,15 +95,20 @@ namespace PlaylistBuilder
         }
 
         // base method to create a get request for the spotify api
-        public static string CreatePostRequest(string URL, string access_token, string user)
+        public static string CreatePostRequest(string URL, string access_token, string body)
         {
-            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(URL);
+            // create post request
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
+            request.Method = "POST";
+            request.ContentType = "application/json";
+            request.Accept = "application/json";
+            request.Headers.Add("Authorization: Bearer " + access_token);
 
-            webRequest.Method = "GET";
-            webRequest.Headers.Add("Authorization", "Bearer " + access_token);
-            webRequest.ContentType = "application/json";
-            webRequest.Accept = "application/json";
-            string json = Helpers.ReadResponseToString(webRequest);
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                streamWriter.Write(body);
+            }
+            string json = Helpers.ReadResponseToString(request); //turn returned data to json formatted string
             return json;
         }
 
