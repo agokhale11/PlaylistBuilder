@@ -11,7 +11,7 @@ algorithms for creating playlists effectively.
 <b>Types of playlists you can build</b>
 - Top 50 most played songs from a user
 - 50 most recently played songs from a user
-- playlists based on danceability, energy, and tempo
+- Playlists based on danceability, artists, and tempo
 
 In regards to the last bullet point, a user can put down a number from 1-5 for how energetic, how danceable, and how fast the tempo they want
 their playlist to be. That information is combined with genre data from their listening history to create an ideal playlist.
