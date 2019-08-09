@@ -39,7 +39,7 @@ namespace PlaylistBuilder.Controllers
         // gets the access tokens and authorization needed to access user data
         public IActionResult Callback()
         {
-            string code = Request.Query["code"];
+            string code = Request.Query["code"]; //gets the authorization code from header
             
             if (code != null)
             {
@@ -49,13 +49,12 @@ namespace PlaylistBuilder.Controllers
                 var encode_clientid_clientsecret = Convert.ToBase64String(Encoding.UTF8.GetBytes(string.Format("{0}:{1}", clientID, clientSecret)));
 
                 HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(tokenURL);
-
                 webRequest.Method = "POST";
                 webRequest.ContentType = "application/x-www-form-urlencoded";
                 webRequest.Accept = "application/json";
                 webRequest.Headers.Add("Authorization: Basic " + encode_clientid_clientsecret);
 
-                var request = ("grant_type=authorization_code&code=" + code + "&redirect_uri=" + loginRedirectUri);
+                var request = "grant_type=authorization_code&code=" + code + "&redirect_uri=" + loginRedirectUri;
                 byte[] req_bytes = Encoding.ASCII.GetBytes(request);
                 webRequest.ContentLength = req_bytes.Length;
 
@@ -64,9 +63,9 @@ namespace PlaylistBuilder.Controllers
                 strm.Close();
 
                 string json = Helpers.ReadResponseToString(webRequest);
-               
                 token = JsonConvert.DeserializeObject<SpotifyToken>(json);
-                
+
+                //add tokens to cookies
                 Response.Cookies.Append("access_token", token.access_token);
                 Response.Cookies.Append("scope", token.scope);
                 Response.Cookies.Append("refresh_token", token.refresh_token);
