@@ -8,7 +8,6 @@ namespace PlaylistBuilder.Models
 {
     public class UserPreference
     {
-        [Required]
         public string ArtistName { get; set; }
 
         public string Tempo { get; set; }

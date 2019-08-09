@@ -58,6 +58,12 @@ namespace PlaylistBuilder.Controllers
 
         public IActionResult FavoriteArtist(UserPreference seed)
         {
+            if (!Helpers.PreferenceValidation(seed))
+            {
+                ViewBag.Message = "Please enter valid fields.";
+                return View("CustomPlaylist");
+            }
+
             string access_token = Request.Cookies["access_token"];
             string user = Request.Cookies["user"];
             string findIdUrl = "" + baseUrl + "/v1/search";
@@ -72,6 +78,12 @@ namespace PlaylistBuilder.Controllers
             string json = Helpers.CreateGetRequest(findIdUrl, access_token, user);
             SearchQuery query = JsonConvert.DeserializeObject<SearchQuery>(json);
             List<ArtistObject> artists = query.artists.Items;
+
+            if (!artists.Any())
+            {
+                ViewBag.Message = "No artists with that name could be found";
+                return View("CustomPlaylist");
+            }
 
             string URL = "" + baseUrl + "/v1/recommendations";
             string seeds = "?seed_artists=" + artists[0].Id + "&limit=50";  

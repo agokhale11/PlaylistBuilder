@@ -21,13 +21,13 @@
 
             <br />
             <br />
-            <h4>What tempo should this playlist generally be at?</h4>
+            <h4>What tempo should this playlist generally be at? (integer)</h4>
             @Html.TextBoxFor(model => model.Tempo)
             @Html.ValidationMessageFor(model => model.Tempo)
 
             <br />
             <br />
-            <h4>How danceable should this playlist be?</h4>
+            <h4>How danceable should this playlist be? (0.0 to 1.0)</h4>
             @Html.TextBoxFor(model => model.Danceable)
             @Html.ValidationMessageFor(model => model.Danceable)
 
@@ -38,8 +38,7 @@
             <button type="submit" class="btn">Create playlist!</button>
         }
 
-
-
+        <h5 style="color:blue;">@ViewBag.Message</h5>
 
     </center>
 
