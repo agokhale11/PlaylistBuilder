@@ -56,7 +56,7 @@ namespace PlaylistBuilder.Controllers
             return View();
         }
 
-        public IActionResult FavoriteArtist(UserPreference seed)
+        public IActionResult Custom(UserPreference seed)
         {
             if (!Helpers.PreferenceValidation(seed))
             {
@@ -74,6 +74,7 @@ namespace PlaylistBuilder.Controllers
             {
                 artistName = seed.ArtistName.Replace(" ", "%20");
             }
+
             findIdUrl = findIdUrl + "?q=" + artistName + type;
             string json = Helpers.CreateGetRequest(findIdUrl, access_token, user);
             SearchQuery query = JsonConvert.DeserializeObject<SearchQuery>(json);
@@ -86,7 +87,7 @@ namespace PlaylistBuilder.Controllers
             }
 
             string URL = "" + baseUrl + "/v1/recommendations";
-            string seeds = "?seed_artists=" + artists[0].Id + "&limit=50";  
+            string seeds = "?seed_artists=" + artists[0].Id + "&limit=50" + "&target_tempo=" + seed.Tempo + "&target_danceability=" + seed.Danceable;  
             string jsonRecommended = Helpers.CreateGetRequest(URL+ seeds, access_token, user);
 
             RecommendationObject recommendation = JsonConvert.DeserializeObject<RecommendationObject>(jsonRecommended);

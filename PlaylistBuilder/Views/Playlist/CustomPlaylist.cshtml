@@ -11,10 +11,8 @@
 
         @model PlaylistBuilder.Models.UserPreference
 
-        @using (Html.BeginForm("FavoriteArtist", "Playlist", FormMethod.Post))
+        @using (Html.BeginForm("Custom", "Playlist", FormMethod.Post))
         {
-            <br />
-            <br />
             <h4>What artist represents this playlist?</h4>
             @Html.TextBoxFor(model => model.ArtistName)
             @Html.ValidationMessageFor(model => model.ArtistName)
@@ -34,11 +32,13 @@
             <br />
             <br />
             <br />
-            <br />
             <button type="submit" class="btn">Create playlist!</button>
         }
 
         <h5 style="color:blue;">@ViewBag.Message</h5>
+
+        <br />
+        <input type="button" class="btn" value="Go back" onclick="location.href='@Url.Action("PlaylistBuilder", "Playlist")'"/>
 
     </center>
 
