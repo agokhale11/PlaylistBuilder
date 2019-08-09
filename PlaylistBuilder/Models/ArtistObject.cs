@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PlaylistBuilder.Models
 {
+    //consists of all the fields that identify and describe an artist as described by Spotify API
     public class ArtistObject
     {
         [JsonProperty("external_urls")]
