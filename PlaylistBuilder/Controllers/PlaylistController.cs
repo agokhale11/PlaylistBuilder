@@ -23,7 +23,7 @@ namespace PlaylistBuilder.Controllers
             string URL = "" + baseUrl + "/v1/me";
             string access_token = Request.Cookies["access_token"];
 
-            string json = Helpers.CreateGetRequest(URL, access_token, "");
+            string json = Helpers.CreateGetRequest(URL, access_token);
 
             user = JsonConvert.DeserializeObject<User>(json);
             Response.Cookies.Append("user", user.id);
@@ -41,7 +41,7 @@ namespace PlaylistBuilder.Controllers
             string user = Request.Cookies["user"];
             string URL = "" + baseUrl + "/v1/me/top/tracks" + "?limit=50";
 
-            string json = Helpers.CreateGetRequest(URL, access_token, user);
+            string json = Helpers.CreateGetRequest(URL, access_token);
 
             PagingObject<TrackObject> songData = JsonConvert.DeserializeObject<PagingObject<TrackObject>>(json);
             List<TrackObject> data = songData.Items;
@@ -76,7 +76,7 @@ namespace PlaylistBuilder.Controllers
             }
 
             findIdUrl = findIdUrl + "?q=" + artistName + type;
-            string json = Helpers.CreateGetRequest(findIdUrl, access_token, user);
+            string json = Helpers.CreateGetRequest(findIdUrl, access_token);
             SearchQuery query = JsonConvert.DeserializeObject<SearchQuery>(json);
             List<ArtistObject> artists = query.artists.Items;
 
@@ -88,7 +88,7 @@ namespace PlaylistBuilder.Controllers
 
             string URL = "" + baseUrl + "/v1/recommendations";
             string seeds = "?seed_artists=" + artists[0].Id + "&limit=50" + "&target_tempo=" + seed.Tempo + "&target_danceability=" + seed.Danceable;  
-            string jsonRecommended = Helpers.CreateGetRequest(URL+ seeds, access_token, user);
+            string jsonRecommended = Helpers.CreateGetRequest(URL+ seeds, access_token);
 
             RecommendationObject recommendation = JsonConvert.DeserializeObject<RecommendationObject>(jsonRecommended);
             List<TrackObject> tracks = recommendation.Tracks.Cast<TrackObject>().ToList();
@@ -104,7 +104,7 @@ namespace PlaylistBuilder.Controllers
             string user = Request.Cookies["user"];
             string URL = "" + baseUrl + "/v1/me/player/recently-played" + "?limit=50";
 
-            string json = Helpers.CreateGetRequest(URL, access_token, user);
+            string json = Helpers.CreateGetRequest(URL, access_token);
             CursorPagingObject<PlayHistoryObject> songData = JsonConvert.DeserializeObject<CursorPagingObject<PlayHistoryObject>>(json);
             List<PlayHistoryObject> data = songData.Items;
             List<TrackObject> songs = new List<TrackObject>();

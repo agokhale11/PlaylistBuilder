@@ -107,7 +107,7 @@ namespace PlaylistBuilder
         }
 
         // base method to create a get request for the spotify api
-        public static string CreateGetRequest(string URL, string access_token, string user)
+        public static string CreateGetRequest(string URL, string access_token)
         { 
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(URL);
 
@@ -116,6 +116,19 @@ namespace PlaylistBuilder
             webRequest.ContentType = "application/json";
             webRequest.Accept = "application/json";
             string json =  Helpers.ReadResponseToString(webRequest);
+            return json;
+        }
+
+        // base method to create a get request for the spotify api
+        public static string CreatePostRequest(string URL, string access_token, string user)
+        {
+            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(URL);
+
+            webRequest.Method = "GET";
+            webRequest.Headers.Add("Authorization", "Bearer " + access_token);
+            webRequest.ContentType = "application/json";
+            webRequest.Accept = "application/json";
+            string json = Helpers.ReadResponseToString(webRequest);
             return json;
         }
 
