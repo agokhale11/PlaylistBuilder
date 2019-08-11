@@ -15,9 +15,9 @@ namespace PlaylistBuilder.Controllers
     public class PlaylistController : Controller
     {
         private User user = new User();
-        private string baseUrl = "https://api.spotify.com"; //base URL for all spotify endpoints
+        private string baseUrl = "https://api.spotify.com";
         
-        // gets the user's id based on the access token
+
         public IActionResult GetUser()
         {
             string URL = "" + baseUrl + "/v1/me";
@@ -35,16 +35,15 @@ namespace PlaylistBuilder.Controllers
             return View("PlaylistBuilder");
         }
 
-        //generates a playlist of a user's top songs
         public IActionResult TopSongCreator()
         {
             string access_token = Request.Cookies["access_token"];
             string user = Request.Cookies["user"];
             string URL = "" + baseUrl + "/v1/me/top/tracks" + "?limit=50";
 
-            string json = Helpers.CreateGetRequest(URL, access_token);  //create a get request and get the returned song data
+            string json = Helpers.CreateGetRequest(URL, access_token);
 
-            PagingObject<TrackObject> songData = JsonConvert.DeserializeObject<PagingObject<TrackObject>>(json); //deserialize json into song data
+            PagingObject<TrackObject> songData = JsonConvert.DeserializeObject<PagingObject<TrackObject>>(json);
             List<TrackObject> data = songData.Items;
 
             PlaylistObject playlist = Helpers.CreatePlaylist("Top Tracks", access_token, user);
@@ -57,11 +56,8 @@ namespace PlaylistBuilder.Controllers
             return View();
         }
 
-        // Create a custom playlist from the user's specfied preferences
-        // @param seed - the user's preferences for artists, tempo, and danceability
         public IActionResult Custom(UserPreference seed)
         {
-            //validate the preference fields
             if (!Helpers.PreferenceValidation(seed))
             {
                 ViewBag.Message = "Please enter valid fields.";
@@ -76,27 +72,27 @@ namespace PlaylistBuilder.Controllers
 
             if (ModelState.IsValid)
             {
-                artistName = seed.ArtistName.Replace(" ", "%20"); //encoded URI
+                artistName = seed.ArtistName.Replace(" ", "%20");
             }
 
             findIdUrl = findIdUrl + "?q=" + artistName + type;
-            string json = Helpers.CreateGetRequest(findIdUrl, access_token); //search spotify for artists matching the given name
+            string json = Helpers.CreateGetRequest(findIdUrl, access_token);
             SearchQuery query = JsonConvert.DeserializeObject<SearchQuery>(json);
             List<ArtistObject> artists = query.artists.Items;
 
             if (!artists.Any())
             {
-                ViewBag.Message = "No artists with that name could be found"; //validation
+                ViewBag.Message = "No artists with that name could be found";
                 return View("CustomPlaylist");
             }
 
-            //gets all main recommended songs
             string URL = "" + baseUrl + "/v1/recommendations";
             string seeds = "?seed_artists=" + artists[0].Id + "&limit=50" + "&target_tempo=" + seed.Tempo + "&target_danceability=" + seed.Danceable;  
             string jsonRecommended = Helpers.CreateGetRequest(URL+ seeds, access_token);
 
             RecommendationObject recommendation = JsonConvert.DeserializeObject<RecommendationObject>(jsonRecommended);
             List<TrackObject> tracks = recommendation.Tracks.Cast<TrackObject>().ToList();
+
             PlaylistObject playlist = Helpers.CreatePlaylist("Recommended", access_token, user);
             ViewBag.songs = Helpers.AddTracksToPlaylist(playlist.Id, access_token, tracks);
             return View("Done");
