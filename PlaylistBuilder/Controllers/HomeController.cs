@@ -18,10 +18,10 @@ namespace PlaylistBuilder.Controllers
 {
     public class HomeController : Controller
     {
-        private string clientID = "2406cc3719e748219629ee9cb4d950d6";
-        private string clientSecret = "f8cda72cd393456f8b72dca1e0340555";
-        private string loginRedirectUri = "http://localhost:51257/home/callback"; // page that spotify redirects to after logging in
-        private string scopes = "user-top-read user-read-recently-played playlist-modify-public " +
+        private readonly string clientID = "2406cc3719e748219629ee9cb4d950d6";
+        private readonly string clientSecret = "f8cda72cd393456f8b72dca1e0340555";
+        private readonly string loginRedirectUri = "http://localhost:51257/home/callback"; // page that spotify redirects to after logging in
+        private readonly string scopes = "user-top-read user-read-recently-played playlist-modify-public " +
             "playlist-read-collaborative playlist-read-private playlist-modify-private"; //permissions given to app from user
         private SpotifyToken token = new SpotifyToken();
         
