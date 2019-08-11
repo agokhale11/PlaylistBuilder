@@ -64,7 +64,7 @@
             },
             "System.Json": {
               "target": "Package",
-              "version": "[4.0.20126.16343, )"
+              "version": "[4.5.0, )"
             }
           },
           "imports": [

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "12a57b4ca4f83c86d247958ce39d93ea4a8ecdf6"
+    "signature": "0810f6c2df98131f39ef35a3c5c90d0b7bdfed66"
   },
   "compilationOptions": {
     "defines": [
@@ -28,7 +28,7 @@
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.9",
-          "System.Json": "4.0.20126.16343"
+          "System.Json": "4.5.0"
         },
         "runtime": {
           "PlaylistBuilder.dll": {}
@@ -330,15 +330,15 @@
           "lib/netstandard1.0/System.Composition.TypedParts.dll": {}
         }
       },
-      "System.Json/4.0.20126.16343": {
+      "System.Json/4.5.0": {
         "runtime": {
-          "lib/net40/System.Json.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.0.20126.16343"
+          "lib/netstandard2.0/System.Json.dll": {
+            "assemblyVersion": "2.0.6.0",
+            "fileVersion": "4.6.26515.6"
           }
         },
         "compile": {
-          "lib/net40/System.Json.dll": {}
+          "lib/netstandard2.0/System.Json.dll": {}
         }
       },
       "System.Linq.Parallel/4.3.0": {
@@ -3610,12 +3610,12 @@
       "path": "system.composition.typedparts/1.0.31",
       "hashPath": "system.composition.typedparts.1.0.31.nupkg.sha512"
     },
-    "System.Json/4.0.20126.16343": {
+    "System.Json/4.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-iFfVzUyuvd5YcTw8NcP62mJ0F+JQ2dDLRArxYk+t6JKdb00mW/uaU3JyO1OuXC3RUsB6ITRYN4FCnxff89Hn4g==",
-      "path": "system.json/4.0.20126.16343",
-      "hashPath": "system.json.4.0.20126.16343.nupkg.sha512"
+      "sha512": "sha512-qa/n31qUQ1qEACgCCHVU20BEvkGQtIlOANSjn9TjmRnxDl/KSYrRzTS83iOuCSr/37BfueFSXHobhZhNUksqVQ==",
+      "path": "system.json/4.5.0",
+      "hashPath": "system.json.4.5.0.nupkg.sha512"
     },
     "System.Linq.Parallel/4.3.0": {
       "type": "package",

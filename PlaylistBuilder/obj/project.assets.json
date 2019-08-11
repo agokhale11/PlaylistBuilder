@@ -3548,13 +3548,13 @@
           "lib/netcoreapp2.1/System.IO.Pipelines.dll": {}
         }
       },
-      "System.Json/4.0.20126.16343": {
+      "System.Json/4.5.0": {
         "type": "package",
         "compile": {
-          "lib/net40/System.Json.dll": {}
+          "lib/netstandard2.0/System.Json.dll": {}
         },
         "runtime": {
-          "lib/net40/System.Json.dll": {}
+          "lib/netstandard2.0/System.Json.dll": {}
         }
       },
       "System.Linq/4.3.0": {
@@ -9482,17 +9482,33 @@
         "version.txt"
       ]
     },
-    "System.Json/4.0.20126.16343": {
-      "sha512": "iFfVzUyuvd5YcTw8NcP62mJ0F+JQ2dDLRArxYk+t6JKdb00mW/uaU3JyO1OuXC3RUsB6ITRYN4FCnxff89Hn4g==",
+    "System.Json/4.5.0": {
+      "sha512": "qa/n31qUQ1qEACgCCHVU20BEvkGQtIlOANSjn9TjmRnxDl/KSYrRzTS83iOuCSr/37BfueFSXHobhZhNUksqVQ==",
       "type": "package",
-      "path": "system.json/4.0.20126.16343",
+      "path": "system.json/4.5.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/net40/System.Json.dll",
-        "lib/net40/System.Json.xml",
-        "system.json.4.0.20126.16343.nupkg.sha512",
-        "system.json.nuspec"
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/Xamarinmac20/_._",
+        "lib/monoandroid10/_._",
+        "lib/monotouch10/_._",
+        "lib/netstandard1.0/System.Json.dll",
+        "lib/netstandard2.0/System.Json.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/Xamarinmac20/_._",
+        "ref/monoandroid10/_._",
+        "ref/monotouch10/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.json.4.5.0.nupkg.sha512",
+        "system.json.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Linq/4.3.0": {
@@ -12556,7 +12572,7 @@
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.9",
-      "System.Json >= 4.0.20126.16343"
+      "System.Json >= 4.5.0"
     ]
   },
   "packageFolders": {
@@ -12623,7 +12639,7 @@
           },
           "System.Json": {
             "target": "Package",
-            "version": "[4.0.20126.16343, )"
+            "version": "[4.5.0, )"
           }
         },
         "imports": [
@@ -12633,17 +12649,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Json 4.0.20126.16343' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
-      "libraryId": "System.Json",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.1"
-      ]
-    }
-  ]
+  }
 }
