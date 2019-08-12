@@ -14,9 +14,6 @@ C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuild
 C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\PlaylistBuilder.TagHelpers.input.cache
 C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\PlaylistBuilder.TagHelpers.output.cache
 C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\PlaylistBuilder.RazorCoreGenerate.cache
-C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
-C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
-C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
 C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
 C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
 C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
@@ -30,3 +27,9 @@ C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuild
 C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\PlaylistBuilder.dll
 C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\PlaylistBuilder.pdb
 C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\PlaylistBuilder.csproj.CopyComplete
+C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\Razor\Views\Home\Callback.g.cshtml.cs
+C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\Razor\Views\Home\Home.g.cshtml.cs
+C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\Razor\Views\Home\InvalidLogin.g.cshtml.cs
+C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\Razor\Views\Playlist\CustomPlaylist.g.cshtml.cs
+C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\Razor\Views\Playlist\Done.g.cshtml.cs
+C:\Users\Aditya\Documents\Coding Projects\Spotify Playlist Builder\PlaylistBuilder\PlaylistBuilder\obj\Release\netcoreapp2.1\Razor\Views\Playlist\PlaylistBuilder.g.cshtml.cs
