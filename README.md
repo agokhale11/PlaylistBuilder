@@ -20,6 +20,8 @@ their playlist to be. That information is combined with genre data from their li
 
 <h2>Walkthrough</h2>
 
+![Alt text](PlaylistBuilder/images/Home.png?raw=true "First")
+
 
 
 <h2>Support</h2>
