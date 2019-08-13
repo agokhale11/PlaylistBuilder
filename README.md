@@ -1,5 +1,6 @@
 # PlaylistBuilder
 Web application that uses the Spotify API to build users personalized playlists based on listening history
+Currently hosted at: https://playlistbuilder.azurewebsites.net/
 
 <h2>Overview</h2>
 
@@ -16,10 +17,8 @@ algorithms for creating playlists effectively.
 In regards to the last bullet point, a user can put down a number from 1-5 for how energetic, how danceable, and how fast the tempo they want
 their playlist to be. That information is combined with genre data from their listening history to create an ideal playlist.
 
-<h2>How to use</h2>
+<h2>Walkthrough</h2>
 
-To use this application, clone this repository to your local machine and run the application. Because this application is not hosted anywhere,
-you may need to free up the ports 51257 or 44383 to listen on.
 
 
 <h2>Support</h2>
