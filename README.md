@@ -26,7 +26,8 @@ The homepage prompts the user to login to their spotify account (choosing "No th
 The user is taken to the Spotify login page where they can enter their credentials.
 ![Alt text](PlaylistBuilder/images/Spotify.png?raw=true)
 
-The user has the option to select which type of playlist to create (this walkthrough will focus on the custom type).
+The user has the option to select which type of playlist to create (this walkthrough will look at the custom type).
+![Alt text](PlaylistBuilder/images/Builder.png?raw=true)
 
 The user can then enter the parameters that should determine the content of the playlist (input is validated).
 ![Alt text](PlaylistBuilder/images/Custom.png?raw=true)
