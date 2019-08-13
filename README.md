@@ -20,7 +20,12 @@ their playlist to be. That information is combined with genre data from their li
 
 <h2>Walkthrough</h2>
 
-![Alt text](PlaylistBuilder/images/Home.png?raw=true "First")
+![Alt text](PlaylistBuilder/images/Home.png?raw=true)
+![Alt text](PlaylistBuilder/images/Spotify.png?raw=true)
+![Alt text](PlaylistBuilder/images/Custom.png?raw=true)
+![Alt text](PlaylistBuilder/images/Done.png?raw=true)
+![Alt text](PlaylistBuilder/images/Playlist.png?raw=true)
+![Alt text](PlaylistBuilder/images/Logout.png?raw=true)
 
 
 
