@@ -1,7 +1,8 @@
 # PlaylistBuilder
 Web application that uses the Spotify API to build users personalized playlists based on listening history
 
-**Site is currently down due to cost issues**
+Note: Site is currently down due to cost issues
+
 Currently hosted at: https://playlistbuilder.azurewebsites.net/
 
 <h2>Overview</h2>
